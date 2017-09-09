@@ -16,7 +16,7 @@ class DataTablesTable extends Table {
         onRowHover: this.onRowHover,
         onRowHoverExit: this.onRowHoverExit,
         onRowSelection: this.onRowSelection,
-        selectable: this.props.selectable,
+        selectable: this.props.selectable && (this.props.disableOnLoading && !this.props.loading),
         style: Object.assign({height: this.props.height}, base.props.style),
       }
     );

@@ -53,6 +53,7 @@ class DataTablesHeaderToolbar extends Component {
   static muiName = 'DataTablesHeaderToolbar';
 
   static propTypes = {
+    disabled: PropTypes.bool,
     filterHintText: PropTypes.string,
     filterValue: PropTypes.string,
     handleFilterValueChange: PropTypes.func,
@@ -93,6 +94,7 @@ class DataTablesHeaderToolbar extends Component {
   }
 
   handleFilterClick = () => {
+    if (this.props.disabled) return;
     const mode = this.state.mode === 'default' ? 'filter' : 'default';
     const {filterValue} = this.state;
     this.setState({
@@ -105,6 +107,7 @@ class DataTablesHeaderToolbar extends Component {
   }
 
   handleClearClick = () => {
+    if (this.props.disabled) return;
     const {filterValue} = this.state;
     if (filterValue !== '') {
       this.setState({
@@ -115,6 +118,7 @@ class DataTablesHeaderToolbar extends Component {
   }
 
   handleFilterValueChange = (event) => {
+    if (this.props.disabled) return;
     const value = event.target.value;
     this.setState({
       filterValue: value,
@@ -126,6 +130,7 @@ class DataTablesHeaderToolbar extends Component {
   }
 
   emitFilterValueChange = (value) => {
+    if (this.props.disabled) return;
     const {onFilterValueChange} = this.props;
     if (onFilterValueChange) {
       onFilterValueChange(value);
@@ -139,6 +144,7 @@ class DataTablesHeaderToolbar extends Component {
       title, // eslint-disable-line no-unused-vars
       titleStyle,
       showFilterIcon,
+      disabled,
       ...other, // eslint-disable-line no-unused-vars, comma-dangle
     } = this.props;
 
@@ -167,6 +173,7 @@ class DataTablesHeaderToolbar extends Component {
               hintText={filterHintText}
               onChange={this.handleFilterValueChange}
               value={filterValue}
+              disabled={disabled}
               ref={(textField) => {
                 this.filterInput = textField ? textField.input : null;
               }}
@@ -176,6 +183,7 @@ class DataTablesHeaderToolbar extends Component {
             <IconButton
               style={Object.assign(styles.headerToolbarIconButton, styles.icon)}
               onClick={this.handleClearClick}
+              disabled={disabled}
             >
               <ClearIcon />
             </IconButton>
@@ -212,6 +220,7 @@ class DataTablesHeaderToolbar extends Component {
         <IconButton
           style={Object.assign(styles.headerToolbarIconButton, styles.icon)}
           onClick={this.handleFilterClick}
+          disabled={disabled}
         >
           <FilterListIcon
             color={mode === 'filter' ? blue500 : ''}

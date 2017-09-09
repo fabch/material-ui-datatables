@@ -110,6 +110,7 @@ class DataTablesHeaderColumn extends TableHeaderColumn {
   }
 
   onMouseEnter = () => {
+    if (this.props.disabled) return;
     if (this.props.tooltip !== undefined) {
       this.setState({hovered: true});
     }
@@ -119,6 +120,7 @@ class DataTablesHeaderColumn extends TableHeaderColumn {
   };
 
   onMouseLeave = () => {
+    if (this.props.disabled) return;
     if (this.props.tooltip !== undefined) {
       this.setState({hovered: false});
     }
@@ -161,7 +163,7 @@ class DataTablesHeaderColumn extends TableHeaderColumn {
       tooltipNode = (
         <Tooltip
           label={tooltip}
-          show={this.state.hovered}
+          show={this.state.hovered && !this.props.disabled}
           style={Object.assign(styles.tooltip, tooltipStyle)}
         />
       );
@@ -180,9 +182,9 @@ class DataTablesHeaderColumn extends TableHeaderColumn {
     let leftSortIcon;
     let rightSortIcon;
 
-    if (sortable && styles.root.textAlign === 'left') {
+    if (sortable && !this.props.disabled && styles.root.textAlign === 'left') {
       rightSortIcon = sortIcon;
-    } else if (sortable && styles.root.textAlign === 'right') {
+    } else if (sortable && !this.props.disabled && styles.root.textAlign === 'right') {
       leftSortIcon = sortIcon;
     }
 
