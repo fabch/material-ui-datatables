@@ -295,6 +295,7 @@ class Main extends Component {
     this.state = {
       data: TABLE_DATA,
       page: 1,
+      loading: false
     };
   }
 
@@ -347,6 +348,45 @@ class Main extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
           <h1>Material-UI-Custom-Components</h1>
+          <div style={styles.component}>
+            <h2>DataTables (Toolbar Icons & Styled title & Styled table & Disable on loading)</h2>
+            <Card style={{margin: 12}}>
+              <DataTables
+                title={'Nutrition'}
+                titleStyle={styles.titleStyle}
+                height={'auto'}
+                selectable={true}
+                showCheckboxes={true}
+                showRowHover={true}
+                multiSelectable={true}
+                enableSelectAll={true}
+                columns={TABLE_COLUMNS_SORT_STYLE}
+                data={TABLE_DATA}
+                showHeaderToolbar={true}
+                footerToolbarStyle={styles.footerToolbarStyle}
+                disableOnLoading={true}
+                loading={this.state.loading}
+                tableBodyStyle={styles.tableBodyStyle}
+                tableStyle={styles.tableStyle}
+                tableWrapperStyle={styles.tableWrapperStyle}
+                count={100}
+                toolbarIconRight={[
+                  <IconButton
+                    onClick={this.handlePersonAddClick}
+                    disabled={this.state.loading}
+                  >
+                    <PersonAdd />
+                  </IconButton>,
+                  <IconButton
+                    onClick={this.handleInfoClick}
+                    disabled={this.state.loading}
+                  >
+                    <InfoOutline />
+                  </IconButton>
+                ]}
+              />
+            </Card>
+          </div>
           <div style={styles.component}>
             <h2>DataTables (Basic)</h2>
             <Card style={{margin: 12, textAlign: 'left'}}>

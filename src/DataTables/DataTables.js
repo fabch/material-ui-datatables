@@ -76,6 +76,7 @@ class DataTables extends Component {
     count: PropTypes.number,
     data: PropTypes.array,
     deselectOnClickaway: PropTypes.bool,
+    disableOnLoading: PropTypes.bool,
     enableSelectAll: PropTypes.bool,
     filterHintText: PropTypes.string,
     filterValue: PropTypes.string,
@@ -85,6 +86,7 @@ class DataTables extends Component {
     headerToolbarMode: PropTypes.string,
     height: PropTypes.string,
     initialSort: PropTypes.object,
+    loading: PropTypes.bool,
     multiSelectable: PropTypes.bool,
     onCellClick: PropTypes.func,
     onCellDoubleClick: PropTypes.func,
@@ -146,6 +148,8 @@ class DataTables extends Component {
     multiSelectable: false,
     enableSelectAll: false,
     deselectOnClickaway: false,
+    loading: false,
+    disableOnLoading: false,
     showCheckboxes: false,
     height: 'inherit',
     showHeaderToolbar: false,
@@ -164,6 +168,7 @@ class DataTables extends Component {
   }
 
   handleHeaderColumnClick = (event, rowIndex, columnIndex) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const adjustedColumnIndex = columnIndex - 1;
     const column = this.props.columns[adjustedColumnIndex];
     if (column && column.sortable) {
@@ -184,6 +189,7 @@ class DataTables extends Component {
   }
 
   handleCellClick = (rowIndex, columnIndex, event) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const {onCellClick, selectable} = this.props;
     if (onCellClick && !selectable) {
       const adjustedColumnIndex = this.props.showCheckboxes ? columnIndex : columnIndex - 1;
@@ -200,6 +206,7 @@ class DataTables extends Component {
   }
 
   handleCellDoubleClick = (rowIndex, columnIndex, event) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const {onCellDoubleClick} = this.props;
     if (onCellDoubleClick) {
       const adjustedColumnIndex = this.props.showCheckboxes ? columnIndex : columnIndex - 1;
@@ -216,6 +223,7 @@ class DataTables extends Component {
   }
 
   handleRowSizeChange = (event, index, value) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const {onRowSizeChange} = this.props;
     if (onRowSizeChange) {
       onRowSizeChange(index, value);
@@ -223,6 +231,7 @@ class DataTables extends Component {
   }
 
   handlePreviousPageClick = (event) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const {onPreviousPageClick} = this.props;
     if (onPreviousPageClick) {
       onPreviousPageClick(event);
@@ -230,6 +239,7 @@ class DataTables extends Component {
   }
 
   handleNextPageClick = (event) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const {onNextPageClick} = this.props;
     if (onNextPageClick) {
       onNextPageClick(event);
@@ -237,6 +247,7 @@ class DataTables extends Component {
   }
 
   handleFilterValueChange = (value) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const {onFilterValueChange} = this.props;
     if (onFilterValueChange) {
       onFilterValueChange(value);
@@ -244,6 +255,7 @@ class DataTables extends Component {
   }
 
   handleRowSelection = (selectedRows) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     const {onRowSelection} = this.props;
     if (onRowSelection) {
       onRowSelection(selectedRows);
@@ -251,6 +263,7 @@ class DataTables extends Component {
   }
 
   renderTableRowColumnData = (row, column) => {
+    if (this.props.disableOnLoading && this.props.loading) return;
     if (column.render) return column.render(row[column.key], row);
     return row[column.key];
   }
@@ -269,6 +282,7 @@ class DataTables extends Component {
       multiSelectable,
       enableSelectAll,
       deselectOnClickaway,
+      disableOnLoading,
       showCheckboxes,
       height,
       showHeaderToolbar,
@@ -283,6 +297,7 @@ class DataTables extends Component {
       page,
       toolbarIconRight,
       count,
+      loading,
       tableStyle,
       tableBodyStyle,
       tableHeaderColumnStyle,
@@ -323,6 +338,7 @@ class DataTables extends Component {
           title={title}
           titleStyle={titleStyle}
           onFilterValueChange={this.handleFilterValueChange}
+          disabled={disableOnLoading && loading}
           toolbarIconRight={toolbarIconRight}
           mode={headerToolbarMode}
           filterValue={filterValue}
@@ -345,6 +361,7 @@ class DataTables extends Component {
                 labelStyle={styles.rowSizeMenu}
                 value={rowSize}
                 onChange={this.handleRowSizeChange}
+                disabled={disableOnLoading && loading}
               >
                 {rowSizeList.map((rowSize) => {
                   return (
@@ -377,13 +394,13 @@ class DataTables extends Component {
                 icon={<ChevronLeft />}
                 style={styles.paginationButton}
                 onClick={this.handlePreviousPageClick}
-                disabled={previousButtonDisabled}
+                disabled={previousButtonDisabled || disableOnLoading && loading}
               />
               <FlatButton
                 icon={<ChevronRight />}
                 style={styles.paginationButton}
                 onClick={this.handleNextPageClick}
-                disabled={nextButtonDisabled}
+                disabled={nextButtonDisabled || disableOnLoading && loading}
               />
             </div>
           </div>
@@ -398,7 +415,10 @@ class DataTables extends Component {
           height={height}
           fixedHeader={fixedHeader}
           fixedFooter={fixedFooter}
-          selectable={selectable}
+          selectable={
+            (selectable && !this.props.disableOnLoading) ||
+            (selectable && this.props.disableOnLoading && !this.props.loading)
+          }
           multiSelectable={multiSelectable}
           onCellClick={this.handleCellClick}
           onCellDoubleClick={this.handleCellDoubleClick}
@@ -411,6 +431,7 @@ class DataTables extends Component {
             displaySelectAll={showCheckboxes}
             adjustForCheckbox={showCheckboxes}
             enableSelectAll={enableSelectAll}
+            disabled={disableOnLoading && loading}
             style={Object.assign({}, styles.tableHeader, tableHeaderStyle)}
           >
             <TableRow
