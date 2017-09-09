@@ -8,8 +8,7 @@
     "test": "gulp test",
     "test:coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "lint": "gulp eslint",
-    "clean:build": "gulp clean:build",
-    "postinstall": "gulp build && gulp build:copy"
+    "clean:build": "gulp clean:build"
   },
   "repository": {
     "type": "git",
