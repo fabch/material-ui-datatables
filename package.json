@@ -1,38 +1,101 @@
 {
-  "name": "material-ui-datatables",
-  "version": "0.18.2",
-  "description": "An another React Data tables component.",
-  "main": "./src/index.js",
-  "scripts": {
-    "start": "gulp",
-    "test": "gulp test",
-    "test:coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "lint": "gulp eslint",
-    "clean:build": "gulp clean:build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hyojin/material-ui-datatables.git"
-  },
-  "keywords": [
-    "react",
-    "react-component",
-    "material design",
-    "material-ui",
-    "datatables"
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/fabch/material-ui-datatables.git#master",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/fabch/material-ui-datatables.git#master",
+        "spec": "git+https://github.com/fabch/material-ui-datatables.git#master",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:fabch/material-ui-datatables.git#master",
+          "sshUrl": "git+ssh://git@github.com/fabch/material-ui-datatables.git#master",
+          "httpsUrl": "git+https://github.com/fabch/material-ui-datatables.git#master",
+          "gitUrl": "git://github.com/fabch/material-ui-datatables.git#master",
+          "shortcut": "github:fabch/material-ui-datatables#master",
+          "directUrl": "https://raw.githubusercontent.com/fabch/material-ui-datatables/master/package.json"
+        }
+      },
+      "/Users/fabienchartrain/Projets/le-comptoir/cvin"
+    ]
   ],
-  "author": "Hyojin Kwak",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-tap-event-plugin": "^1.0.0 || ^2.0.0"
+  "_from": "git+https://github.com/fabch/material-ui-datatables.git#master",
+  "_id": "material-ui-datatables@0.18.2",
+  "_inCache": true,
+  "_location": "/material-ui-datatables",
+  "_phantomChildren": {
+    "babel-runtime": "6.26.0",
+    "change-emitter": "0.1.6",
+    "fbjs": "0.8.14",
+    "hoist-non-react-statics": "1.2.0",
+    "inline-style-prefixer": "3.0.7",
+    "keycode": "2.1.9",
+    "lodash.merge": "4.6.0",
+    "lodash.throttle": "4.1.1",
+    "prop-types": "15.5.10",
+    "react-addons-create-fragment": "15.6.0",
+    "react-addons-transition-group": "15.6.0",
+    "react-event-listener": "0.4.5",
+    "simple-assign": "0.1.0",
+    "symbol-observable": "1.0.4",
+    "warning": "3.0.0"
+  },
+  "_requested": {
+    "raw": "https://github.com/fabch/material-ui-datatables.git#master",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/fabch/material-ui-datatables.git#master",
+    "spec": "git+https://github.com/fabch/material-ui-datatables.git#master",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:fabch/material-ui-datatables.git#master",
+      "sshUrl": "git+ssh://git@github.com/fabch/material-ui-datatables.git#master",
+      "httpsUrl": "git+https://github.com/fabch/material-ui-datatables.git#master",
+      "gitUrl": "git://github.com/fabch/material-ui-datatables.git#master",
+      "shortcut": "github:fabch/material-ui-datatables#master",
+      "directUrl": "https://raw.githubusercontent.com/fabch/material-ui-datatables/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/fabch/material-ui-datatables.git#9fe84d2ba4a175758adf084c53cc75bbca205a7c",
+  "_shasum": "7afa39f80c3c32f1075582cf9a72327a7c04d91c",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/fabch/material-ui-datatables.git#master",
+  "_where": "/Users/fabienchartrain/Projets/le-comptoir/cvin",
+  "author": {
+    "name": "Hyojin Kwak"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react",
+            "stage-1"
+          ]
+        }
+      ]
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/hyojin/material-ui-datatables/issues"
   },
   "dependencies": {
     "babel-runtime": "^6.18.0",
     "material-ui": "0.18.0",
     "prop-types": "^15.5.10"
   },
+  "description": "An another React Data tables component.",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
@@ -70,7 +133,36 @@
     "watchify": "^3.7.0",
     "webpack": "^1.13.3"
   },
-  "browserify": {
-    "transform": [["babelify", {"presets": ["es2015", "react", "stage-1"]}]]
-  }
+  "gitHead": "9fe84d2ba4a175758adf084c53cc75bbca205a7c",
+  "homepage": "https://github.com/hyojin/material-ui-datatables#readme",
+  "keywords": [
+    "react",
+    "react-component",
+    "material design",
+    "material-ui",
+    "datatables"
+  ],
+  "license": "MIT",
+  "main": "./build/index.js",
+  "name": "material-ui-datatables",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-tap-event-plugin": "^1.0.0 || ^2.0.0"
+  },
+  "readme": "# Material-UI-Datatables\n\n[![npm](https://img.shields.io/npm/v/material-ui-datatables.svg?style=flat-square)](https://www.npmjs.com/package/material-ui-datatables)\n[![Build Status](https://img.shields.io/travis/hyojin/material-ui-datatables/master.svg?style=flat-square)](https://travis-ci.org/hyojin/material-ui-datatables)\n[![Coverage Status](https://img.shields.io/coveralls/hyojin/material-ui-datatables/master.svg?style=flat-square)](https://coveralls.io/github/hyojin/material-ui-datatables?branch=master)\n\nAn another React Data tables component.  \nMaterial-UI-Datatables is a custom [React](https://facebook.github.io/react/) component using awesome [Material-UI](http://www.material-ui.com/). It provides rendering data and emitting events\n such as filter and column sort and pagination which may help you dealing with your data. But it doesn't provide features all done within the component. Most parts of this component are stateless, which means you need to implement your logic for the events.\n\n**Now material-ui provides [example code](https://material-ui-1dab0.firebaseapp.com/component-demos/tables) of data tables component with it's v1.0.0 package**\n\n## Installation\n```sh\nnpm install material-ui-datatables\n```\nor\n```sh\nyarn add material-ui-datatables\n```\n\n## Demo\n[Demo](https://hyojin.github.io/material-ui-datatables/)\n\n## Status\nWork in progress\n\n## Usage\n```jsx\nimport React, {Component} from 'react';\nimport DataTables from 'material-ui-datatables';\n\nconst TABLE_COLUMNS = [\n  {\n    key: 'name',\n    label: 'Dessert (100g serving)',\n  }, {\n    key: 'calories',\n    label: 'Calories',\n  },\n  ...\n];\n\nconst TABLE_DATA = [\n  {\n    name: 'Frozen yogurt',\n    calories: '159',\n    fat: '6.0',\n    carbs: '24',\n    ...\n  }, {\n    name: 'Ice cream sandwich',\n    calories: '159',\n    fat: '6.0',\n    carbs: '24',\n    ...\n  },\n  ...\n];\n\nclass MyComponent extends Component {\n  ...\n  handleFilterValueChange = (value) => {\n    // your filter logic\n  }\n\n  handleSortOrderChange = (key, order) => {\n    // your sort logic\n  }\n\n  render() {\n    return (\n      <DataTables\n        height={'auto'}\n        selectable={false}\n        showRowHover={true}\n        columns={TABLE_COLUMNS}\n        data={TABLE_DATA}\n        showCheckboxes={false}\n        onCellClick={this.handleCellClick}\n        onCellDoubleClick={this.handleCellDoubleClick}\n        onFilterValueChange={this.handleFilterValueChange}\n        onSortOrderChange={this.handleSortOrderChange}\n        page={1}\n        count={100}\n      />\n    );\n  }\n}\n```\n\n## Properties\n| Name                 | Type      | Default           | Description                                  |\n|----------------------|-----------|-------------------|----------------------------------------------|\n| columns              | array     |                   | Array of column settings [object](https://github.com/hyojin/material-ui-datatables#column-settings) |\n| count                | number    | 0                 |                                              |\n| data                 | array     |                   |                                              |\n| enableSelectAll      | bool      | false             |                                              |\n| filterHintText       | string    | 'Search'          |                                              |\n| filterValue          | string    | ''                |                                              |\n| footerToolbarStyle   | object    |                   |                                              |\n| headerToolbarMode    | string    | 'default'         | 'default' or 'filter'                        |\n| height               | string    | 'inherit'         |                                              |\n| initialSort          | object    |                   | {column: 'column key', order: 'asc or desc'} |\n| multiSelectable      | bool      | false             |                                              |\n| onCellClick          | function  |                   |                                              |\n| onCellDoubleClick    | function  |                   |                                              |\n| onFilterValueChange  | function  |                   | Should set 'showHeaderToolbar' to true first |\n| onNextPageClick      | function  |                   |                                              |\n| onPreviousPageClick  | function  |                   |                                              |\n| onRowSelection       | function  |                   |                                              |\n| onRowSizeChange      | function  |                   |                                              |\n| onSortOrderChange    | function  |                   |                                              |\n| page                 | number    | 1                 |                                              |\n| rowSize              | number    | 10                |                                              |\n| rowSizeLabel         | string    | 'Rows per page:'  |                                              |\n| rowSizeList          | array     | [10, 30, 50, 100] |                                              |\n| selectable           | bool      | false             |                                              |\n| selectedRows         | array     | []                |                                              |\n| showCheckboxes       | bool      | false             |                                              |\n| showFooterToolbar    | bool      | true              |                                              |\n| showHeaderToolbar    | bool      | false             |                                              |\n| showHeaderToolbarFilterIcon | bool | true            |                                              |\n| showRowHover         | bool      | false             |                                              |\n| showRowSizeControls  | bool      | false             |                                              |\n| summaryLabelTemplate | function  |                   |                                              |\n| tableBodyStyle       | object    |                   |                                              |\n| tableHeaderColumnStyle | object  |                   |                                              |\n| tableHeaderStyle     | object    |                   |                                              |\n| tableRowColumnStyle  | object    |                   |                                              |\n| tableRowStyle        | object    |                   |                                              |\n| tableStyle           | object    |                   |                                              |\n| tableWrapperStyle    | object    |                   |                                              |\n| title                | string    |                   | Should set 'showHeaderToolbar' to true first |\n| titleStyle           | object    |                   | Should set 'showHeaderToolbar' to true first |\n| toolbarIconRight     | node      |                   | Can be an array of IconButton nodes          |\n\n## Column settings\n| Name                 | Type      | Default           | Description                                  |\n|----------------------|-----------|-------------------|----------------------------------------------|\n| key                  | string    |                   |                                              |\n| label                | string    |                   |                                              |\n| sortable             | bool      | false             |                                              |\n| tooltip              | string    |                   |                                              |\n| className            | string    |                   |                                              |\n| render               | function  |                   |                                              |\n| alignRight           | bool      |                   |                                              |\n| style                | object    |                   | Inline column styles                         |\n\n### Setting example\n```javascript\n{\n  key: 'name',\n  label: 'Dessert (100g serving)',\n  sortable: true,\n  tooltip: 'Dessert (100g serving)',\n  className: 'important-column',\n  style: {\n    width: 250,\n  },\n  render: (name, all) => <p>{name}</p>\n}\n```\n\n## License\nMIT\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyojin/material-ui-datatables.git"
+  },
+  "scripts": {
+    "clean:build": "gulp clean:build",
+    "lint": "gulp eslint",
+    "start": "gulp",
+    "test": "gulp test",
+    "test:coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+  },
+  "version": "0.18.2"
 }
